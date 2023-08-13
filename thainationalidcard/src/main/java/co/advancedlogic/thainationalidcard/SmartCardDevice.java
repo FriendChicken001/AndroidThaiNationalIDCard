@@ -89,31 +89,31 @@ public class SmartCardDevice {
         UsbDevice device = null;
         SmartCardDevice cardDevice = null;
 
-        manager = (UsbManager)context.getSystemService(Context.USB_SERVICE);
-        if (manager == null) {
-            Log.w(TAG, "USB manager not found");
-            return null;
-        }
+//        manager = (UsbManager)context.getSystemService(Context.USB_SERVICE);
+//        if (manager == null) {
+//            Log.w(TAG, "USB manager not found");
+//            return null;
+//        }
 
-        deviceList = manager.getDeviceList();
-        if (deviceList == null) {
-            Log.w(TAG, "USB device list not found");
-            return null;
-        }
+//        deviceList = manager.getDeviceList();
+//        if (deviceList == null) {
+//            Log.w(TAG, "USB device list not found");
+//            return null;
+//        }
 
-        for (String key : deviceList.keySet()) {
-            Log.d(TAG, "Search device contain name [" + nameContain + "] with [" + deviceList.get(key).getProductName() + "] [" + deviceList.get(key).getDeviceName() + "]");
-            if (deviceList.get(key).getProductName().contains(nameContain)) {
-                device = deviceList.get(key);
-                Log.d(TAG, "Found device: " + device.getProductName());
-                break;
-            }
-        }
-
-        if (device == null) {
-            Log.w(TAG, "Device name [" + nameContain + "] not found");
-            return null;
-        }
+//        for (String key : deviceList.keySet()) {
+//            Log.d(TAG, "Search device contain name [" + nameContain + "] with [" + deviceList.get(key).getProductName() + "] [" + deviceList.get(key).getDeviceName() + "]");
+//            if (deviceList.get(key).getProductName().contains(nameContain)) {
+//                device = deviceList.get(key);
+//                Log.d(TAG, "Found device: " + device.getProductName());
+//                break;
+//            }
+//        }
+//
+//        if (device == null) {
+//            Log.w(TAG, "Device name [" + nameContain + "] not found");
+//            return null;
+//        }
 
         cardDevice = new SmartCardDevice(context, device, infIndex, endpointInputIndex, endpointOutputIndex, eventCallback);
 
